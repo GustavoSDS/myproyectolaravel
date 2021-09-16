@@ -2,10 +2,6 @@
 
 @section('title', 'Dashboard')
 
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
-
 @section('content')
     <p>Welcome to this beautiful admin panel.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus autem magni quos quia, aliquam eius unde consequuntur dicta sequi accusantium corporis quam amet, cupiditate alias atque at rem tenetur.</p>

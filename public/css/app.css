@@ -1460,17 +1460,11 @@ select {
 .flex-wrap {
 	flex-wrap: wrap;
 }
-.items-start {
-	align-items: flex-start;
-}
 .items-center {
 	align-items: center;
 }
 .items-baseline {
 	align-items: baseline;
-}
-.justify-start {
-	justify-content: flex-start;
 }
 .justify-end {
 	justify-content: flex-end;
@@ -1656,9 +1650,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
-.bg-transparent {
-	background-color: transparent;
-}
 .bg-gray-900 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
@@ -1669,9 +1660,6 @@ select {
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
-}
-.bg-opacity-50 {
-	--tw-bg-opacity: 0.5;
 }
 .bg-gradient-to-t {
 	background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -1732,10 +1720,6 @@ select {
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
-}
-.object-center {
-	-o-object-position: center;
-	   object-position: center;
 }
 .p-2 {
 	padding: 0.5rem;
@@ -2423,10 +2407,6 @@ select {
 
 	.sm\:items-center {
 		align-items: center;
-	}
-
-	.sm\:items-stretch {
-		align-items: stretch;
 	}
 
 	.sm\:justify-start {
