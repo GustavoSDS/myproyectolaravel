@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Preinscripcion_fecha;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterUserRequest extends FormRequest
@@ -21,17 +22,17 @@ class RegisterUserRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
-
         return [
-            'skills' => 'required|min:1'
+            'horarios' => 'required|min:1'
         ];
     }
     public function messages()
     {
-        return[
-            'skills.required' => 'Debe seleccionar minimo 1 horario'
+        return [
+            'horarios.required' => 'Debe seleccionar minimo 1 horario',
         ];
     }
 }

@@ -1,13 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Requests\RegisterUserRequest;
+use App\Http\Controllers\FormularioController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FormularioController::class, 'index'])->name('welcome');
 
-Route::post('form-post', function (RegisterUserRequest $request) {
-    dd(request()->except('_token'));
- })->name('form-post');
+Route::post('form-post', [FormularioController::class, 'store'])->name('form-post.store');

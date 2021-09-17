@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreatePreinscripcionFechasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,28 +13,24 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('preinscripcion_fechas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('dni');
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->text('permissions')->nullable();
-            $table->timestamp('last_login')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->integer('dia');
+            $table->integer('mes');
+            $table->integer('ano');
+            $table->string('nombre');
+            $table->integer('box_id')->nullable()->unsigned();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
-            $table->rememberToken();
             $table->integer('created_by')->nullable()->unsigned();
             $table->integer('updated_by')->nullable()->unsigned();
             $table->integer('deleted_by')->nullable()->unsigned();
             $table->softDeletes();
+
+            $table->foreign('box_id')->references('id')->on('boxes')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('updated_by')->references('id')->on('users');
             $table->foreign('deleted_by')->references('id')->on('users');
-            $table->engine = 'InnoDB';
-            $table->unique('dni');
-            $table->unique('email');
         });
     }
 
@@ -45,6 +41,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('preinscripcion_fechas');
     }
 }
