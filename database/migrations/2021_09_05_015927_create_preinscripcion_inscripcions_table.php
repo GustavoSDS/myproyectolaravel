@@ -21,13 +21,13 @@ class CreatePreinscripcionInscripcionsTable extends Migration
             $table->string('apellido');
             $table->string('email');
             $table->string('telefono');
-            $table->string('instagram');
+            $table->string('instagram')->nullable();
             $table->string('horarios');
             $table->boolean('cambio_turno')->default(false);
             $table->boolean('activo')->default(true);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('preinscripcion_fecha_id')->references('id')->on('preinscripcion_fechas')->onDelete('cascade');
+            $table->foreign('preinscripcion_fecha_id')->references('id')->on('preinscripcion_fechas');
         });
     }
 

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_login')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
             $table->rememberToken();
             $table->integer('created_by')->nullable()->unsigned();

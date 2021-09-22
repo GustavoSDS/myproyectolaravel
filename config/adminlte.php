@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Gimnasio',
-    'title_prefix' => 'Gimnasio | ',
+    'title' => '',
+    'title_prefix' => 'Gimnasio: ',
     'title_postfix' => '',
 
     /*
@@ -66,7 +66,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-red',
+    'usermenu_header_class' => 'bg-green text-center justify-center',
     'usermenu_image' => true,
     'usermenu_desc' => true,
     'usermenu_profile_url' => true,
@@ -167,7 +167,7 @@ return [
     |
     */
 
-    'right_sidebar' => true,
+    'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
@@ -188,13 +188,13 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/',
+    'dashboard_url' => '/admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
-    'password_reset_url' => 'password/reset',
-    'password_email_url' => 'password/email',
-    'profile_url' => true,
+    // 'profile_url' => true,
+    // 'password_reset_url' => 'password/reset',
+    // 'password_email_url' => 'password/email',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,15 +226,15 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
 
         // Sidebar items:
         [
@@ -255,7 +255,7 @@ return [
                     'text' => 'Listado',
                     'icon'    => 'fas fa-fw fa-clipboard-list',
                     'icon_color' => 'cyan',
-                    'route'  => 'ciclos.show',
+                    'route'  => 'ciclos.index',
                 ],
                 [
                     'text' => 'Nuevo',

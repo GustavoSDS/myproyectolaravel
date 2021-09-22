@@ -9,12 +9,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Route::resource('ciclos', CiclosController::class)->parameters(['ciclos' => 'ciclo'])->names('ciclos');
+    Route::resource('ciclos', CiclosController::class)->parameters(['ciclos' => 'ciclo'])->names('ciclos');
 
-    Route::get('ciclos', [CiclosController::class, 'show'])->name('ciclos.show');
+    // Route::get('ciclos', [CiclosController::class, 'show'])->name('ciclos.show');
 
-    Route::get('ciclos/create', [CiclosController::class, 'create'])->name('ciclos.create');
+    // Route::get('ciclos/create', [CiclosController::class, 'create'])->name('ciclos.create');
 
-    Route::post('ciclos', [CiclosController::class, 'store'])->name('ciclos.store');
+    // Route::post('ciclos', [CiclosController::class, 'store'])->name('ciclos.store');
+
+    // Route::delete('ciclos/{id}', [CiclosController::class, 'destroy'])->name('ciclos.destroy');
 
 });

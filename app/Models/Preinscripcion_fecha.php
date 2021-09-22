@@ -16,16 +16,16 @@ class Preinscripcion_fecha extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'dia',
-        'mes',
-        'ano',
-        'nombre',
-        'box_id',
-    ];
 
-    //Relacion uno a muchos inversa
-    public function inscriptos(){
+    //Relacion uno a muchos
+    public function inscripto(){
+        return $this->hasMany(Preinscripcion_inscripcion::class);
+    }
+
+    public function inscriptos()
+    {
         return $this->belongsTo(Preinscripcion_inscripcion::class);
     }
+
+
 }

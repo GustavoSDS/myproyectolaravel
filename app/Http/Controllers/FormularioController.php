@@ -53,4 +53,6 @@ class FormularioController extends Controller
             return redirect()->route('welcome', $horarios)->with('mensaje', 'Formulario Pendiente');
         }
     }
+
+
 }

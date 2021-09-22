@@ -27,7 +27,7 @@ class CreatePreinscripcionFechasTable extends Migration
             $table->integer('deleted_by')->nullable()->unsigned();
             $table->softDeletes();
 
-            $table->foreign('box_id')->references('id')->on('boxes')->onDelete('cascade');
+            $table->foreign('box_id')->references('id')->on('boxes');
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('updated_by')->references('id')->on('users');
             $table->foreign('deleted_by')->references('id')->on('users');

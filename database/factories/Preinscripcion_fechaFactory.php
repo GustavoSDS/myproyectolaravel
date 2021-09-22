@@ -26,7 +26,7 @@ class Preinscripcion_fechaFactory extends Factory
             'dia' => random_int(1, 31),
             'mes' => random_int(1, 12),
             'ano' => $this->faker->year(),
-            'nombre' => $this->faker->month(),
+            'nombre' => $this->faker->monthName(),
             'box_id' => random_int(1, 10),
         ];
     }

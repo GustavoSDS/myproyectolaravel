@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Nuevo')
+@section('title', 'Editar')
 
 @section('content')
 
@@ -16,19 +16,20 @@
                 </div>
             </div>
         @endif
-        <form action="{{ route('ciclos.store') }}" method="POST">
+        <form action="#" method="POST">
             @csrf
             <div class="px-8 pb-6">
+
                 <div class="m-4">
                     <label class="text-white" for="nombre">Nombre</label>
-                    <input class=" border rounded w-full py-2 px-3" type="text" name="nombre"
-                        placeholder="Pre- Inscripciones Septiembre" required>
+                    <input class=" border rounded w-full py-2 px-3" type="text" name="nombre" value="{{ $fechas->nombre }}"
+                        required>
                 </div>
 
                 <div class="m-4">
                     <label class="text-white" for="dia">Fecha</label>
-                    <input class=" border rounded w-full py-2 px-3" type="date" value="2021-09-17" id="fechaComienzo"
-                        name="comienzo" required>
+                    <input class=" border rounded w-full py-2 px-3" type="date" value="{{ $fechas->date }}" name="comienzo"
+                        required>
                 </div>
 
                 <div class="m-4">
@@ -43,8 +44,8 @@
                 <div class="m-4">
                     <label class="text-white" for="activo">Activo</label>
                     <select name="activo" id="activo">
-                        <option value="1">Si</option>
-                        <option value="0">No</option>
+                        <option value="{{ $fechas->activo }}">Si</option>
+                        <option value="{{ $fechas->activo }}">No</option>
                     </select>
                 </div>
 
@@ -65,7 +66,5 @@
 @stop
 
 @section('js')
-    <script>
 
-    </script>
 @stop
