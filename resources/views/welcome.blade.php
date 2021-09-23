@@ -33,13 +33,13 @@
                             - No cambios de turno -</h1>
                         <p>Ingresa tu información par solicitar turnos</p>
                     </div>
-                    <span class="flex -mx-3 mb-2"><b class="text-red-500">* </b> Obligatorio</span>
+                    <span class="flex -mx-3 mb-2">Obligatorio <b class="text-red-500">* </b></span>
                     <form action="{{ route('form-post.store') }}" method="POST">
                         @csrf
                         <div>
                             <div class="flex -mx-3">
                                 <div class="w-1/2 px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Nombre</label>
+                                    <label for="" class="text-xs font-semibold px-1">Nombre <span class="text-red-600">*</span> </label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Apellido</label>
+                                    <label for="" class="text-xs font-semibold px-1">Apellido <span class="text-red-600">*</span></label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="flex -mx-3">
                                 <div class="w-3/6 px-3 mb-6">
-                                    <label for="" class="text-xs font-semibold px-1">DNI</label>
+                                    <label for="" class="text-xs font-semibold px-1">DNI <span class="text-red-600">*</span></label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="w-3/6 px-3 mb-6">
-                                    <label for="" class="text-xs font-semibold px-1">Teléfono</label>
+                                    <label for="" class="text-xs font-semibold px-1">Teléfono <span class="text-red-600">*</span></label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -98,7 +98,7 @@
                             </div>
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Email</label>
+                                    <label for="" class="text-xs font-semibold px-1">Email <span class="text-red-600">*</span></label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -136,7 +136,7 @@
                             @enderror
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-8">
-                                    <label for="" class="text-sm font-semibold px-1">Horarios</label>
+                                    <label for="" class="text-sm font-semibold px-1">Horarios <span class="text-red-600">*</span></label>
                                     <div class="flex justify-center">
                                         <div class="grid grid-cols-5 gap-2">
                                             @foreach ($horarios as $horario)

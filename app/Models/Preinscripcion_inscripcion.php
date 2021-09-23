@@ -12,7 +12,7 @@ class Preinscripcion_inscripcion extends Model
     //Relacion uno a muchos
     public function fechas()
     {
-        return $this->belongsTo(Preinscripcion_fecha::class);
+        return $this->belongsTo(Preinscripcion_fecha::class, 'id', 'preinscripcion_fecha_id');
     }
 
     public function fechasP(){
