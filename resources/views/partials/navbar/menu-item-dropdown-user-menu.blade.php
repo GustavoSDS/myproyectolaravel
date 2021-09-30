@@ -2,7 +2,7 @@
 @php( $profile_url = View::getSection('profile_url') ?? config('adminlte.profile_url', 'logout') )
 
 @if (config('adminlte.usermenu_profile_url', false))
-    @php( $profile_url = Auth::user()->adminlte_profile_url() )
+    @php( $profile_url = {{route('profile.show')}} )
 @endif
 
 @if (config('adminlte.use_route_url', false))
