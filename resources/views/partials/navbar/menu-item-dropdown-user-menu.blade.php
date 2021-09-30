@@ -19,8 +19,7 @@
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         @if(config('adminlte.usermenu_image'))
             <img src="{{ Auth::user()->adminlte_image() }}"
-                 class="mx-auto user-image img-circle elevation-2"
-                 alt="{{ Auth::user()->name }}">
+                 class="mx-auto user-image img-circle elevation-2">
         @endif
     </a>
 
