@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\Sugestions;
 use App\Models\Preinscripcion_fecha;
 use App\Models\Preinscripcion_inscripcion;
-use Illuminate\Http\Request;
+use App\Models\Suggestion;
 
 const horarios = ['8 a 9', '9 a 10', '14 a 15', '15 a 16', '16 a 17', '17 a 18', '18 a 19', '19 a 20', '20 a 21', '21 a 22'];
 
-class FormularioController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
@@ -51,5 +52,15 @@ class FormularioController extends Controller
         }
     }
 
+    public function suggestions()
+    {
+        return view('suggestions');
+    }
 
+    public function post(Sugestions $request)
+    {
+        $sugerencias = $request->except('_token');
+        Suggestion::insert($sugerencias);
+        return redirect()->route('suggestions')->with('message', '¡Sugerencia enviada!');
+    }
 }

@@ -19,6 +19,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -43,8 +44,19 @@
     @endauth
 
     @stack('modals')
-
     @livewireScripts
+    <script>
+        Swal.fire({
+            title: '<strong>PAGINA EN <u>DESARROLLO!</u></strong>',
+            {{-- icon: 'info', --}}
+            html: 'Puedes dejar tus <b>opiniones</b> y <b>comentarios</b> en el menú de ' +
+                '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
+            showCloseButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
+        });
+    </script>
+
 
 </body>
 

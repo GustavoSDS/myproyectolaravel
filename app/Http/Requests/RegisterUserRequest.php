@@ -2,12 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Preinscripcion_fecha;
-use App\Models\Preinscripcion_inscripcion;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 class RegisterUserRequest extends FormRequest
 {
     /**
