@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterUserRequest;
-use App\Models\Boxe;
 use App\Models\Preinscripcion_fecha;
 use App\Models\Preinscripcion_inscripcion;
 use Illuminate\Http\Request;
@@ -20,14 +19,12 @@ class FormularioController extends Controller
 
     public function store(RegisterUserRequest $request)
     {
-        $horarios = horarios;
-        if (!Preinscripcion_fecha::select('*')->count() == 0) {
-            // return dd(request()->except('_token'));
+        if (Preinscripcion_fecha::select('activo')->count() >= 1) {
 
             $datos = $request->except('_token');
 
             $datosHorarios = "";
-            $meses = Preinscripcion_fecha::select('id')->orderBy('activo')->limit(1)->get();
+            $meses = Preinscripcion_fecha::where('mes', '=', date("m"))->orderBy('activo')->limit(1)->get();
             $mes = $meses[0];
             $m = $mes['id'];
             foreach ($datos['horarios'] as $dato) {
@@ -47,10 +44,10 @@ class FormularioController extends Controller
             $datosOrdenados['horarios'] = $datos['horarios'];
 
             Preinscripcion_inscripcion::insert($datosOrdenados);
-            // return $datosOrdenados;
-            return redirect()->route('welcome', $horarios)->with('mensaje', 'Formulario Eviado');
+            // return $m;
+            return redirect()->route('welcome')->with('alert', 'Formulario enviado!');
         } else {
-            return redirect()->route('welcome', $horarios)->with('mensaje', 'Formulario Pendiente');
+            return redirect()->route('welcome')->with('alert', 'Sin vacantes disponible! Diculpe las molestias');
         }
     }
 

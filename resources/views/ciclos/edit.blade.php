@@ -16,8 +16,9 @@
                 </div>
             </div>
         @endif
-        <form action="#" method="POST">
+        <form action="{{route('ciclos.update', $fechas->id)}}" method="POST">
             @csrf
+            @method('put')
             <div class="px-8 pb-6">
 
                 <div class="m-4">
@@ -44,8 +45,8 @@
                 <div class="m-4">
                     <label class="text-white" for="activo">Activo</label>
                     <select name="activo" id="activo">
-                        <option value="{{ $fechas->activo }}">Si</option>
-                        <option value="{{ $fechas->activo }}">No</option>
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
                     </select>
                 </div>
 

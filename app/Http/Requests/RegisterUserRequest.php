@@ -3,7 +3,10 @@
 namespace App\Http\Requests;
 
 use App\Models\Preinscripcion_fecha;
+use App\Models\Preinscripcion_inscripcion;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterUserRequest extends FormRequest
 {
@@ -26,13 +29,27 @@ class RegisterUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'horarios' => 'required|min:1'
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
+            'dni' => ['required', 'unique:preinscripcion_inscripcions'],
+            'email' => ['required', 'email', 'max:255', 'unique:preinscripcion_inscripcions'],
+            'telefono' => ['required'],
+            'horarios' => ['required'],
         ];
     }
-    public function messages()
+
+    public function message()
     {
         return [
+            'dni.required' => 'El DNI es obligatorio',
+            'nombre.required' => 'El Nombre es obligatorio',
+            'apellid.required' => 'El Apellido es obligatorio',
+            'email.required' => 'El Email es obligatorio',
+            'telefono.required' => 'El Telefono es obligatorio',
             'horarios.required' => 'Debe seleccionar minimo 1 horario',
+            
+            'dni.unique:preinscripcion_inscripcions' => 'El DNI ya existe en la base',
+            'email.unique:preinscripcion_inscripcions' => 'El EMAIL ya existe en la base',
         ];
     }
 }
