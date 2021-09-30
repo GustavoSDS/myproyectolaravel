@@ -69,7 +69,7 @@ return [
     'usermenu_header_class' => 'bg-green text-center justify-center',
     'usermenu_image' => true,
     'usermenu_desc' => true,
-    'usermenu_profile_url' => true,
+    // 'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -192,6 +192,9 @@ return [
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
+    // 'profile_url' => false,
+    // 'password_reset_url' => 'password/reset',
+    // 'password_email_url' => 'password/email',
 
     /*
     |--------------------------------------------------------------------------

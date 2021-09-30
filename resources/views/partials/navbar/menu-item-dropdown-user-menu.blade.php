@@ -2,7 +2,7 @@
 @php( $profile_url = View::getSection('profile_url') ?? config('adminlte.profile_url', 'logout') )
 
 @if (config('adminlte.usermenu_profile_url', false))
-    @php( $profile_url = {{route('profile.show')}} )
+    @php( $profile_url = Auth::user()->adminlte_profile_url() )
 @endif
 
 @if (config('adminlte.use_route_url', false))
@@ -19,7 +19,8 @@
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         @if(config('adminlte.usermenu_image'))
             <img src="{{ Auth::user()->adminlte_image() }}"
-                 class="mx-auto user-image img-circle elevation-2">
+                 class="mx-auto user-image img-circle elevation-2"
+                 alt="{{ Auth::user()->name }}">
         @endif
     </a>
 
