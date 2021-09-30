@@ -65,8 +65,8 @@ class User extends Authenticatable
 
     public function adminlte_image()
     {
-       return Auth::user()->profile_photo_url;
-        // return 'https://picsum.photos/300/300';
+    //    return Auth::user()->profile_photo_url;
+        return 'https://picsum.photos/300/300';
     }
 
     public function adminlte_desc()
@@ -76,7 +76,7 @@ class User extends Authenticatable
 
     public function adminlte_profile_url()
     {
-        return 'profile/username';
+        return redirect()->route('profile.show');
     }
 
     //Relacion uno a muchos
