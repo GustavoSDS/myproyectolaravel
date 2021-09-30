@@ -45,16 +45,19 @@
 
     @stack('modals')
     @livewireScripts
-    <script>
-        Swal.fire({
-            title: '<strong>PÁGINA EN <u>DESARROLLO!</u></strong>',
-            {{-- icon: 'info', --}}
-            html: 'Puedes dejar tus <b>opiniones</b> y <b>comentarios</b> en el menú de ' +
-                '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
-            focusConfirm: false,
-            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
-        });
-    </script>
+    @auth
+    @else
+        <script>
+            Swal.fire({
+                title: '<strong>PÁGINA EN <u>DESARROLLO!</u></strong>',
+                {{-- icon: 'info', --}}
+                html: 'Puedes dejar tus <b>opiniones</b> y <b>comentarios</b> en el menú de ' +
+                    '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
+                focusConfirm: false,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
+            });
+        </script>
+    @endauth
 
 
 </body>
