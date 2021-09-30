@@ -12,7 +12,7 @@
                         <span class="text-red-700">-No cambios de turno-</span>
                     </h1>
                     <br>
-                    <p class="font-bold uppercase">Ingresa tu información par solicitar turnos</p>
+                    <p class="font-bold uppercase">Ingresa tu información para solicitar turnos</p>
                 </div>
 
                 @if (Session::has('alert'))
