@@ -47,7 +47,7 @@
     @livewireScripts
     <script>
         Swal.fire({
-            title: '<strong>PAGINA EN <u>DESARROLLO!</u></strong>',
+            title: '<strong>PÁGINA EN <u>DESARROLLO!</u></strong>',
             {{-- icon: 'info', --}}
             html: 'Puedes dejar tus <b>opiniones</b> y <b>comentarios</b> en el menú de ' +
                 '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
