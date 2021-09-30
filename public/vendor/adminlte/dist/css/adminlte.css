@@ -15891,12 +15891,14 @@ body.text-sm .control-sidebar {
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+  margin: auto;
   height: 175px;
   padding: 10px;
   text-align: center;
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  margin: auto;
   z-index: 5;
   height: 90px;
   width: 90px;

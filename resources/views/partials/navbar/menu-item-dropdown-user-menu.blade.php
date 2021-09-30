@@ -19,7 +19,7 @@
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         @if(config('adminlte.usermenu_image'))
             <img src="{{ Auth::user()->adminlte_image() }}"
-                 class="mx-auto user-image img-circle elevation-2"
+                 class="centrar-imagen user-image img-circle elevation-2"
                  alt="{{ Auth::user()->name }}">
         @endif
     </a>
@@ -33,7 +33,7 @@
                 @if(!config('adminlte.usermenu_image')) h-auto @endif">
                 @if(config('adminlte.usermenu_image'))
                     <img src="{{ Auth::user()->adminlte_image() }}"
-                         class="mx-auto img-circle elevation-2"
+                         class="centrar-imagen img-circle elevation-2"
                          alt="{{ Auth::user()->name }}">
                 @endif
                 <p class="@if(!config('adminlte.usermenu_image')) mt-0 @endif">
