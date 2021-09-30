@@ -51,7 +51,6 @@
             {{-- icon: 'info', --}}
             html: 'Puedes dejar tus <b>opiniones</b> y <b>comentarios</b> en el menú de ' +
                 '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
-            showCloseButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
         });
