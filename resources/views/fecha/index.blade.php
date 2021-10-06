@@ -47,7 +47,7 @@
                 <th scope="col">Mes</th>
                 <th scope="col">Año</th>
                 <th scope="col">Nombre</th>
-                {{-- <th scope="col"></th> --}}
+                <th scope="col"></th>
                 <th scope="col">Activo</th>
                 <th scope="col">&nbsp;</th>
               </tr>
