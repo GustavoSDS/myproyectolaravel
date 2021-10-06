@@ -77,26 +77,26 @@
           {data: 'mes'},
           {data: 'ano'},
           {data: 'nombre'},
-        //   {data: 'created_at'},
+          {data: 'created_at'},
           {data: 'activo'},
           {data: 'btn' },
         ],
         // merge
-        // "columnDefs":[
-        //   {
-        //     "render": function(data, type, row){
-        //       if (data==1) {
-        //         return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-green-800'>Activo</span>" +' - '+row['created_at'];
-        //       }else{
-        //         return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-red-800'>Inactivo</span>" +' - '+row['created_at'];
-        //       }
-        //     },
-        //     "targets": 6
-        //   },
-        //   {
-        //     "visible": false, "targets": [5]
-        //   }
-        // ],
+        "columnDefs":[
+          {
+            "render": function(data, type, row){
+              if (data==1) {
+                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-green-800'>Activo</span>" +' - '+row['created_at'];
+              }else{
+                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-red-800'>Inactivo</span>" +' - '+row['created_at'];
+              }
+            },
+            "targets": 6
+          },
+          {
+            "visible": false, "targets": [5]
+          }
+        ],
         "pageLength": 10,
         "dom": 'lrtip',
         "language":{
