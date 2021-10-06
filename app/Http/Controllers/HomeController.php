@@ -22,7 +22,7 @@ class HomeController extends Controller
         }
     }
 
-    public function store(RegisterUserRequest $request)
+    public function preinscripciones(RegisterUserRequest $request)
     {
         if (Preinscripcion_fecha::select('activo')->count() >= 1) {
 

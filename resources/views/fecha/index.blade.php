@@ -30,7 +30,7 @@
                 </form>
             </div>
 
-            <div class="col text-center">
+            <div class="col text-right">
                 <span>
                     <a href="{{ route('fecha.create') }}" class="px-6 bg-gray-100 hover:bg-blue-400 focus:outline-none text-black hover:text-white text-md font-semibold shadow-md mx-auto py-2 hover:scale-105 ">Crear ciclo</a>
                 </span>
