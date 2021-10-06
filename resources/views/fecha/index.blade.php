@@ -86,9 +86,10 @@
           {
             "render": function(data, type, row){
               if (data==1) {
-                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-green-800'>Activo</span>" +' - '+row['created_at'];
+                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-green-800'>Activo</span>";
+                //  +' - '+row['created_at'];
               }else{
-                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-red-800'>Inactivo</span>" +' - '+row['created_at'];
+                return "<span class='px-2 inline-flex text-sm leading-5 font-bold text-red-800'>Inactivo</span>";
               }
             },
             "targets": 6
