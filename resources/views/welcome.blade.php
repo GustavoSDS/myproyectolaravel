@@ -1,8 +1,9 @@
 <x-app-layout>
     <!-- Componente de blade que contiene el titulo, imagen, y clases de estilo para esta pagina -->
     <x-registro-form>
-        <form action="{{ route('form.store') }}" method="POST">
+        <form action="{{ route('pre-inscripciones.post') }}" method="POST">
             @csrf
+            @method('POST')
             <div>
                 <div class="flex -mx-3">
                     <div class="w-1/2 px-3">

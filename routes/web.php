@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
-Route::post('/form-post', [HomeController::class, 'store'])->name('form.store');
+Route::post('/pre-inscripciones', [HomeController::class, 'store'])->name('pre-inscripciones.post');
 
 
 Route::get('/suggestions', [HomeController::class, 'suggestions'])->name('suggestions');
