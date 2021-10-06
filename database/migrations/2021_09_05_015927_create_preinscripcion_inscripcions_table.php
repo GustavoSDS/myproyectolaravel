@@ -15,7 +15,7 @@ class CreatePreinscripcionInscripcionsTable extends Migration
     {
         Schema::create('preinscripcion_inscripcions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('preinscripcion_fecha_id')->unsigned();
+            $table->unsignedBigInteger('preinscripcion_fecha_id');
             $table->integer('dni');
             $table->string('nombre');
             $table->string('apellido');
@@ -25,9 +25,12 @@ class CreatePreinscripcionInscripcionsTable extends Migration
             $table->string('horarios');
             $table->boolean('cambio_turno')->default(false);
             $table->boolean('activo')->default(true);
-            $table->timestamps();
+
+            $table->foreign('preinscripcion_fecha_id')->references('id')->on('preinscripcion_fechas')->onDelete('cascade');
+
             $table->softDeletes();
-            $table->foreign('preinscripcion_fecha_id')->references('id')->on('preinscripcion_fechas');
+            $table->timestamps();
+
         });
     }
 

@@ -14,26 +14,26 @@ class CreatePreinscripcionFechasTable extends Migration
     public function up()
     {
         Schema::create('preinscripcion_fechas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('dia');
             $table->integer('mes');
             $table->integer('ano');
             $table->string('nombre');
             $table->integer('box_id')->nullable()->unsigned();
             $table->boolean('activo')->default(true);
-            $table->timestamps();
             $table->integer('created_by')->nullable()->unsigned();
             $table->integer('updated_by')->nullable()->unsigned();
             $table->integer('deleted_by')->nullable()->unsigned();
-            $table->softDeletes();
 
             $table->foreign('box_id')->references('id')->on('boxes');
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('updated_by')->references('id')->on('users');
             $table->foreign('deleted_by')->references('id')->on('users');
+            $table->softDeletes();
+
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

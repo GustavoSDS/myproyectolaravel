@@ -88,7 +88,7 @@ return [
     'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => true,
+    'layout_dark_mode' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -255,13 +255,13 @@ return [
                     'text' => 'Listado',
                     'icon'    => 'fas fa-fw fa-clipboard-list',
                     'icon_color' => 'cyan',
-                    'route'  => 'ciclos.index',
+                    'route'  => 'fecha.index',
                 ],
                 [
                     'text' => 'Nuevo',
                     'icon'    => 'fas fa-fw fa-plus-square',
                     'icon_color' => 'green',
-                    'route'  => 'ciclos.create',
+                    'route'  => 'fecha.create',
                 ],
             ],
         ],

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -65,8 +64,8 @@ class User extends Authenticatable
 
     public function adminlte_image()
     {
-    //    return Auth::user()->profile_photo_url;
-        return 'https://picsum.photos/300/300';
+        // return 'https://picsum.photos/300/300';
+       return Auth::user()->profile_photo_url;
     }
 
     public function adminlte_desc()
@@ -77,11 +76,6 @@ class User extends Authenticatable
     public function adminlte_profile_url()
     {
         return redirect()->route('profile.show');
-    }
-
-    //Relacion uno a muchos
-    public function posts(){
-        return $this->hasMany(Post::class);
     }
 
 }

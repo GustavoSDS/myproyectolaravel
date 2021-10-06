@@ -14,8 +14,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $horarios = horarios;
-        return view('welcome', compact('horarios'));
+        if (auth()->user()) {
+            return redirect()->route('admin');
+        } else {
+            $horarios = horarios;
+            return view('welcome', compact('horarios'));
+        }
     }
 
     public function store(RegisterUserRequest $request)
@@ -54,7 +58,11 @@ class HomeController extends Controller
 
     public function suggestions()
     {
-        return view('suggestions');
+        if (auth()->user()) {
+            return redirect()->route('admin');
+        } else {
+            return view('suggestions');
+        }
     }
 
     public function post(Sugestions $request)

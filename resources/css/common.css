@@ -1,3 +1,6 @@
+.text-teal {
+    color: #4dc0b5;
+}
 .text-teal-100 {
     color: #dfefef;
 }
@@ -33,7 +36,9 @@
 .text-teal-900 {
     color: #007070;
 }
-
+.bg-teal {
+    background-color: #4DC0B5;
+}
 .bg-teal-100 {
     background-color: #dfefef;
 }
