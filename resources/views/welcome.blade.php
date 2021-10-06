@@ -118,9 +118,6 @@
 
                 <div class="flex -mx-3">
                     <div class="w-full px-3 mb-5">
-                        {{-- <button type="submit"
-                            class="block w-full max-w-xs mx-auto bg-teal-600 hover:bg-teal-800 focus:bg-teal-700 text-white rounded-lg px-3 py-3 font-semibold">
-                            SOLICITAR TURNO</button> --}}
                             <button
                                 class="block w-full max-w-xs mx-auto bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 border-b-4 border-teal-700 hover:border-teal-500">
                                 SOLICITAR TURNO
