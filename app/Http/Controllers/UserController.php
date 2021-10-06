@@ -31,9 +31,9 @@ class UserController extends Controller
     public function dataTable()
     {
         return DataTables::of(Preinscripcion_fecha::select('id', 'dia', 'mes', 'ano', 'nombre', 'created_at', 'activo'))
-            ->editColumn('created_at', function (Preinscripcion_fecha $fecha) {
-                return $fecha->created_at->diffForHumans();
-            })
+            // ->editColumn('created_at', function (Preinscripcion_fecha $fecha) {
+            //     return $fecha->created_at->diffForHumans();
+            // })
             ->addColumn('btn', 'fecha.dataTable.btn')
             ->rawColumns(['btn'])
             ->toJson();
