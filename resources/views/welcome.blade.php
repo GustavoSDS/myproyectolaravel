@@ -3,7 +3,7 @@
     <x-registro-form>
         <form action="{{ route('pre-inscripciones.post') }}" method="POST">
             @csrf
-            @method('POST')
+            {{ csrf_field() }}
             <div>
                 <div class="flex -mx-3">
                     <div class="w-1/2 px-3">
