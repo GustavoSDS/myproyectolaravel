@@ -21,8 +21,8 @@
             </div>
             <div class="card-body">
                 <div class="mb-2">
-                    <table class="table table-bordered table-striped table-hover">
-                        <tbody>
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead>
                             <tr>
                                 <th> Inscripto </th>
                                 <th> Email </th>
@@ -30,15 +30,17 @@
                                 <th> Telefono </th>
                                 <th> Instagram </th>
                             </tr>
-                            <tr>
-                                @foreach ($inscriptos as $inscripto)
+                        </thead>
+                        <tbody>
+                            @foreach ($inscriptos as $inscripto)
+                                <tr>
                                     <td> {{ $inscripto->nombre." ".$inscripto->apellido }} </td>
                                     <td> {{ $inscripto->email }} </td>
                                     <td> {{ $inscripto->dni }} </td>
                                     <td> {{ $inscripto->telefono }} </td>
                                     <td> {{ $inscripto->instagram }} </td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

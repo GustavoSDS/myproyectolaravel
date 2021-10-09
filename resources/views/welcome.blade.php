@@ -1,14 +1,14 @@
 <x-app-layout>
     <!-- Componente de blade que contiene el titulo, imagen, y clases de estilo para esta pagina -->
     <x-registro-form>
-        <form action="{{ route('pre-inscripciones.post') }}" method="POST">
+        <form action="{{ route('preInscripciones.post') }}" method="POST">
             @csrf
             {{ csrf_field() }}
             <div>
                 <div class="flex -mx-3">
                     <div class="w-1/2 px-3">
                         <!-- Componente de blade que contiene estilos para los label text -->
-                        <x-label>Nombre</x-label>
+                        <x-label for="nombre">Nombre</x-label>
                         </label>
                         <div class="flex">
                             <!-- Class-icons definida en el archivo common.css con los estilos-->
@@ -16,36 +16,41 @@
                                 <i class="fas fa-user text-gray-400 text-lg"></i>
                             </div>
                             <!-- Componente de blade que contiene estilos para los inputs de datos personales-->
-                            <x-input-nombre />
+                            <input class="inputs-datos" placeholder="John" name="nombre" type="text" value="{{ Request::old('nombre') }}" maxlength="20" pattern="[A-Za-z ]+"
+                            title="Obligatorio. Máximo 20 carácteres. Solo Letras." required />
                         </div>
                     </div>
                     <div class="w-1/2 px-3 mb-5">
-                        <x-label>Apellido</x-label>
+                        <x-label for="apellido">Apellido</x-label>
                         <div class="flex">
                             <div class="class-icons">
                                 <i class="fas fa-user-plus text-gray-400 text-lg"></i>
                             </div>
-                            <x-input-apellido />
+                            <input class="inputs-datos" placeholder="Smith" type="text" name="apellido" maxlength="30" value="{{ Request::old('apellido') }}" required pattern="[A-Za-z ]+"
+                            title="Obligatorio. Máximo 30 carácteres. Solo Letras." />
                         </div>
                     </div>
                 </div>
                 <div class="flex -mx-3">
                     <div class="w-3/6 px-3">
-                        <x-label>DNI</x-label>
+                        <x-label for="dni">DNI</x-label>
                         <div class="flex">
                             <div class="class-icons">
                                 <i class="fas fa-keyboard text-gray-400 text-lg"></i>
                             </div>
-                            <x-input-dni />
+                            <input class="inputs-datos" placeholder="00000000" type="text" name="dni" value="{{ Request::old('dni') }}" required maxlength="8" pattern="[0-9]+"
+                            title="Obligatorio. 8 números requeridos"
+                            />
                         </div>
                     </div>
                     <div class="w-3/6 px-3">
-                        <x-label>Teléfono</x-label>
+                        <x-label for="telefono">Teléfono</x-label>
                         <div class="flex">
                             <div class="class-icons">
                                 <i class="fas fa-phone-square text-gray-400 text-lg"></i>
                             </div>
-                            <x-input-telefono />
+                            <input class="inputs-datos" placeholder="37640000" type="tel" pattern="[0-9]+" minlength="10" maxlength="12" name="telefono" value="{{ Request::old('telefono') }}" required title="Obligatorio. Sólo números."
+                            />
                         </div>
                     </div>
                 </div>
@@ -61,12 +66,13 @@
 
                 <div class="flex -mx-3">
                     <div class="w-full px-3 mb-5">
-                        <x-label>Email</x-label>
+                        <x-label for="email">Email</x-label>
                         <div class="flex">
                             <div class="class-icons">
                                 <i class="fas fa-envelope-open-text text-gray-400 text-lg"></i>
                             </div>
-                            <x-input-email />
+                            <input class="inputs-datos" placeholder="johnsmith@example.com" type="email" name="email" value="{{ Request::old('email') }}" required
+                            />
                         </div>
                         @error('email')
                             <x-input-error>
@@ -78,12 +84,12 @@
 
                 <div class="flex -mx-3">
                     <div class="w-full px-3 mb-5">
-                        <label for="" class="text-xs font-semibold px-1">Instagram</label>
+                        <x-label for="instagram">Instagram</x-label>
                         <div class="flex">
                             <div class="class-icons">
                                 <i class="fab fa-instagram text-gray-400 text-lg"></i>
                             </div>
-                            <x-input-instagram />
+                            <input class="inputs-datos" placeholder="@johnsmithexample" type="text" value="{{ Request::old('instagram') }}" name="instagram"/>
                         </div>
                     </div>
                 </div>
@@ -120,14 +126,14 @@
                 <div class="flex -mx-3">
                     <div class="w-full px-3 mb-5">
                             <button
-                                class="block w-full max-w-xs mx-auto bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 border-b-4 border-teal-700 hover:border-teal-500">
+                                class="block w-full max-w-xs mx-auto bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 border-b-4 border-teal-700 hover:border-teal-700">
                                 SOLICITAR TURNO
                             </button>
                     </div>
                 </div>
 
                 <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-                    <p class="font-bold">Nota</p>
+                    <p class="font-bold">Nota:</p>
                     <p class="text-sm"> * Esta solicitud esta sujeta a aprobación. Ni bien se libere
                         un cupo en el
                         horario

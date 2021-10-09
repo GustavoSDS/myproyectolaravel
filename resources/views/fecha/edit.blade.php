@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('plugins.Sweetalert2', true)
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endsection
@@ -24,7 +26,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('fecha.update', $fecha->id) }}" method="POST">
+                        <form action="{{ route('fecha.update', $fecha->id) }}" method="POST" class="formularioActualizar">
                             @method('PUT')
                             @csrf
                             <h6 class="text-gray-800 text-center text-base mb-8 w-2/4">
@@ -66,8 +68,7 @@
                             <hr class="my-4" />
                             <div class="text-center">
                                 <span class="sm:ml-3">
-                                    <button type="button"
-                                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium text-white bg-indigo-400 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform hover:scale-105">
+                                    <button class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium text-white bg-indigo-400 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform hover:scale-105">
                                         <i class="fas fa-edit mr-2"></i>
                                         ACTUALIZAR
                                     </button>
@@ -80,3 +81,39 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    @if (session('actualizar') == 'ok')
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Actualizado!',
+                text: 'Registro actualizado con éxito!',
+                showConfirmButton: false,
+                timer: 2100
+            })
+        </script>
+    @endif
+
+    <script>
+        $('.formularioActualizar').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Desea actualizar este registro?',
+                // text: "Si lo actualiza no podrá recuperarlo!",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, actualizar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+
+        });
+    </script>
+@stop

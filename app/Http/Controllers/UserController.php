@@ -57,11 +57,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $input = $request->all();
-        // $input['password'] = bcrypt($request->password);
-        // User::create($input);
-        // return redirect()->route('user.index');
-
         $date = strtotime($request->input('comienzo')); //fecha en entero
         $datos['dia'] = idate('d', $date);
         $datos['mes'] = idate('m', $date);
@@ -72,7 +67,7 @@ class UserController extends Controller
 
         Preinscripcion_fecha::insert($datos);
 
-        return redirect()->route('fecha.index')->with('mensaje', 'Creado con éxito!');
+        return redirect()->route('fecha.create')->with('guardar', 'ok');
     }
 
     /**
@@ -109,16 +104,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $fecha = Preinscripcion_fecha::findOrFail($id);
-        // $input = $request->only('name', 'email');
-        // $password = $request->input('password');
-        // if ($password) {
-        //     $input['password'] = bcrypt($password);
-        // }
-        // $fecha->fill($input);
-        // // dd($fecha);
-        // $fecha->save();
-
         $date = strtotime($request->input('comienzo')); //fecha en entero
         $datos['dia'] = idate('d', $date);
         $datos['mes'] = idate('m', $date);
@@ -127,7 +112,7 @@ class UserController extends Controller
         $datos['activo'] = intval($request->input('activo'));
 
         Preinscripcion_fecha::where('id', '=', $id)->update($datos);
-        return redirect()->route('fecha.index')->with('mensaje', 'Actualizado con éxito!');
+        return redirect()->route('fecha.edit', $id)->with('actualizar', 'ok');
     }
 
     /**
@@ -140,6 +125,6 @@ class UserController extends Controller
     {
         $fecha = Preinscripcion_fecha::findOrFail($id);
         $fecha->delete();
-        return redirect()->back()->with('mensaje', 'Eliminado con éxito!');
+        return redirect()->back()->with('eliminar', 'ok');
     }
 }

@@ -55,6 +55,7 @@
                     '<a class="text-blue-500" href="{{ route('suggestions') }}">Sugerencias!</a> ',
                 focusConfirm: false,
                 confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
+                confirmButtonColor: '#3085d6',
             });
         </script>
     @endauth
