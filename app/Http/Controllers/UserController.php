@@ -58,11 +58,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $date = strtotime($request->input('comienzo')); //fecha en entero
-        $this->fecha(datos,key);
         $datos['nombre'] = $request->input('nombre');
+        $datos = $this->fecha($datos, $date);
         // $datos['box_id'] = intval($request->input(''));
         $datos['activo'] = intval($request->input('activo'));
 
+        //return $datos;
         Preinscripcion_fecha::insert($datos);
 
         return redirect()->route('fecha.create')->with('guardar', 'ok');
@@ -103,8 +104,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $date = strtotime($request->input('comienzo')); //fecha en entero
-        $this->fecha(datos,key);
         $datos['nombre'] = $request->input('nombre');
+        $datos = $this->fecha($datos, $date);
         $datos['activo'] = intval($request->input('activo'));
 
         Preinscripcion_fecha::where('id', '=', $id)->update($datos);
@@ -125,10 +126,11 @@ class UserController extends Controller
     }
 
     //Funciones
-    function fecha($datos, $key){
-        $datos['dia'] = idate('d', $key);
-        $datos['mes'] = idate('m', $key);
-        $datos['ano'] = intval(20 . idate('y', $key));
+    //Funcion para obtener fecha y almacenar en la base de datos
+    function fecha($datos, $date){
+        $datos['dia'] = idate('d', $date);
+        $datos['mes'] = idate('m', $date);
+        $datos['ano'] = intval(20 . idate('y', $date));
         return $datos;
     }
 }
