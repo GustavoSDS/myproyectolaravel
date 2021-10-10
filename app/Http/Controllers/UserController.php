@@ -58,9 +58,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $date = strtotime($request->input('comienzo')); //fecha en entero
-        $datos['dia'] = idate('d', $date);
-        $datos['mes'] = idate('m', $date);
-        $datos['ano'] = intval(20 . idate('y', $date));
+        $this->fecha(datos,key);
         $datos['nombre'] = $request->input('nombre');
         // $datos['box_id'] = intval($request->input(''));
         $datos['activo'] = intval($request->input('activo'));
@@ -105,9 +103,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $date = strtotime($request->input('comienzo')); //fecha en entero
-        $datos['dia'] = idate('d', $date);
-        $datos['mes'] = idate('m', $date);
-        $datos['ano'] = intval(20 . idate('y', $date));
+        $this->fecha(datos,key);
         $datos['nombre'] = $request->input('nombre');
         $datos['activo'] = intval($request->input('activo'));
 
@@ -126,5 +122,13 @@ class UserController extends Controller
         $fecha = Preinscripcion_fecha::findOrFail($id);
         $fecha->delete();
         return redirect()->back()->with('eliminar', 'ok');
+    }
+
+    //Funciones
+    function fecha($datos, $key){
+        $datos['dia'] = idate('d', $key);
+        $datos['mes'] = idate('m', $key);
+        $datos['ano'] = intval(20 . idate('y', $key));
+        return $datos;
     }
 }
